@@ -84,9 +84,9 @@ end
   end
 
   def draw?
-  if full?
-    return !won?
-  else false
-  end
+    if full?
+      return !won?
+    else false
+    end
   end
 end
