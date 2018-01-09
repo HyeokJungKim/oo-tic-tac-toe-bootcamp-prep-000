@@ -98,7 +98,7 @@ end
   end
 
   def winner
-    if won?(
+    if won?
       return @board[won?[0]]
     else
       nil
