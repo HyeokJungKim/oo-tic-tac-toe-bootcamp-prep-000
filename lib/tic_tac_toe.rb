@@ -62,6 +62,23 @@ end
       end
     end
 
+    def won?
+      WIN_COMBINATIONS.each do |cond|
+        term1 = cond[0]
+        term2 = cond[1]
+        term3 = cond[2]
+
+        p1 = @board[term1]
+        p2 = @board[term2]
+        p3 = @board[term3]
+
+        if p1 != " " && p1 == p2 && p2 == p3
+          return cond
+        end
+      end
+      return false
+    end
+    
   def full?
     return !@board.include?(" ")
   end
