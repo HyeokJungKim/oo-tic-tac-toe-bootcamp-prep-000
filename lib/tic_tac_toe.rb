@@ -42,42 +42,42 @@ end
     index.between?(0,8) && !position_taken?(index)
   end
 
-    def turn_count
-      @board.count{|token| token == "X" || token == "O"}
-    end
+  def turn_count
+    @board.count{|token| token == "X" || token == "O"}
+  end
 
-    def current_player
-      turn_count % 2 == 0 ? "X" : "O"
-    end
+  def current_player
+    turn_count % 2 == 0 ? "X" : "O"
+  end
 
-    def turn
-      puts "Please enter 1-9:"
-      input = gets.strip
-      index = input_to_index(input)
-      if valid_move?(index)
-        move(index, current_player)
-        display_board
-      else
-        turn
+  def turn
+    puts "Please enter 1-9:"
+    input = gets.strip
+    index = input_to_index(input)
+    if valid_move?(index)
+      move(index, current_player)
+      display_board
+    else
+      turn
+    end
+  end
+
+  def won?
+    WIN_COMBINATIONS.each do |cond|
+      term1 = cond[0]
+      term2 = cond[1]
+      term3 = cond[2]
+
+      p1 = @board[term1]
+      p2 = @board[term2]
+      p3 = @board[term3]
+
+      if p1 != " " && p1 == p2 && p2 == p3
+        return cond
       end
     end
-
-    def won?
-      WIN_COMBINATIONS.each do |cond|
-        term1 = cond[0]
-        term2 = cond[1]
-        term3 = cond[2]
-
-        p1 = @board[term1]
-        p2 = @board[term2]
-        p3 = @board[term3]
-
-        if p1 != " " && p1 == p2 && p2 == p3
-          return cond
-        end
-      end
-      return false
-    end
+  return false
+  end
 
   def full?
     return !@board.include?(" ")
