@@ -106,14 +106,14 @@ end
   end
 
   def play
-  until(over?|| draw?)
-    turn
+    until(over?|| draw?)
+      turn
+    end
+    if won?(
+      symbol = winner
+      puts "Congratulations #{symbol}!"
+    else
+      puts "Cat's Game!"
+    end
   end
-  if won?(
-    symbol = winner
-    puts "Congratulations #{symbol}!"
-  else
-    puts "Cat's Game!"
-  end
-end
 end
