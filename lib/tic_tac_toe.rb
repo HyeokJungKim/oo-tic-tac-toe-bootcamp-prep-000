@@ -61,4 +61,8 @@ end
         turn
       end
     end
+
+  def full?
+    return !@board.include?(" ")
+  end
 end
