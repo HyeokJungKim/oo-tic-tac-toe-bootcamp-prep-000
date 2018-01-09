@@ -109,7 +109,7 @@ end
     until(over?|| draw?)
       turn
     end
-    if won?(
+    if won?
       symbol = winner
       puts "Congratulations #{symbol}!"
     else
