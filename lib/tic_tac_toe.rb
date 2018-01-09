@@ -104,4 +104,16 @@ end
       nil
     end
   end
+
+  def play
+  until(over?|| draw?)
+    turn
+  end
+  if won?(
+    symbol = winner
+    puts "Congratulations #{symbol}!"
+  else
+    puts "Cat's Game!"
+  end
+end
 end
