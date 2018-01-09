@@ -78,8 +78,15 @@ end
       end
       return false
     end
-    
+
   def full?
     return !@board.include?(" ")
+  end
+
+  def draw?
+  if full?
+    return !won?
+  else false
+  end
   end
 end
